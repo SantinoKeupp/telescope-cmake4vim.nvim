@@ -15,7 +15,7 @@ You can setup the extension by doing
 require('telescope').load_extension('cmake4vim')
 ```
 
-somewhere after your require('telescope').setup() call.
+somewhere after your ```require('telescope').setup()``` call.
 
 ## Available commands
 
