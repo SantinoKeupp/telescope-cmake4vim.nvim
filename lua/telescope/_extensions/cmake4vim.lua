@@ -59,8 +59,7 @@ local make_select_kit = function(opts)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
-        print(vim.inspect(selection))
-        vim.g.cmake_kit = selection[1]
+        vim.g.cmake_selected_kit = selection[1]
       end)
       return true
     end,
