@@ -9,7 +9,7 @@ local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 
-local make_select_target = function(opts)
+local select_target = function(opts)
   opts = opts or {}
   pickers.new(opts, {
     prompt_title = "CMake Target",
@@ -28,7 +28,7 @@ local make_select_target = function(opts)
   }):find()
 end
 
-local make_select_build_type = function(opts)
+local select_build_type = function(opts)
   opts = opts or {}
   pickers.new(opts, {
     prompt_title = "CMake Build Type",
@@ -47,7 +47,7 @@ local make_select_build_type = function(opts)
   }):find()
 end
 
-local make_select_kit = function(opts)
+local select_kit = function(opts)
   opts = opts or {}
   pickers.new(opts, {
     prompt_title = "CMake Kit",
@@ -68,8 +68,8 @@ end
 
 return telescope.register_extension {
   exports = {
-    make_select_kit = make_select_kit,
-    make_select_build_type = make_select_build_type,
-    make_select_target = make_select_target
+    select_kit = select_kit,
+    select_build_type = select_build_type,
+    select_target = select_target
   },
 }
