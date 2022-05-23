@@ -3,6 +3,8 @@ if not has_telescope then
   error("This plugin requires nvim-telescope/telescope.nvim")
 end
 
+
+local extension_name = "telescope-cmake4vim.nvim"
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
@@ -11,6 +13,12 @@ local action_state = require "telescope.actions.state"
 
 local select_target = function(opts)
   opts = opts or {}
+
+  if vim.g.loaded_cmake4vim_plugin == nil then
+    vim.notify("cmake4vim is not loaded", vim.log.levels.WARN, { title = extension_name })
+    return
+  end
+
   pickers.new(opts, {
     prompt_title = "CMake Target",
     finder = finders.new_table {
@@ -30,6 +38,12 @@ end
 
 local select_build_type = function(opts)
   opts = opts or {}
+
+  if vim.g.loaded_cmake4vim_plugin == nil then
+    vim.notify("cmake4vim is not loaded", vim.log.levels.WARN, { title = extension_name })
+    return
+  end
+
   pickers.new(opts, {
     prompt_title = "CMake Build Type",
     finder = finders.new_table {
@@ -49,6 +63,12 @@ end
 
 local select_kit = function(opts)
   opts = opts or {}
+
+  if vim.g.loaded_cmake4vim_plugin == nil then
+    vim.notify("cmake4vim is not loaded", vim.log.levels.WARN, { title = extension_name })
+    return
+  end
+
   pickers.new(opts, {
     prompt_title = "CMake Kit",
     finder = finders.new_table {
